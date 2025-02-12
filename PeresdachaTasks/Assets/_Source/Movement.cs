@@ -28,10 +28,10 @@ public class Movement : IDisposable
 
     private void OnClickDown()
     {
-        Debug.Log("ClickDown");
+        _movable.RB.gravityScale = -_movable.JumpPower;
     }
     private void OnClickUp()
     {
-        Debug.Log("ClickUp");
+        _movable.RB.gravityScale = _movable.JumpPower;
     }
 }

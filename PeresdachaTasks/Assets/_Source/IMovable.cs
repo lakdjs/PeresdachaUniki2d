@@ -6,4 +6,5 @@ public interface IMovable
 {
     float JumpPower { get; }
     Transform Transform { get; }
+    Rigidbody2D RB { get; }
 }
