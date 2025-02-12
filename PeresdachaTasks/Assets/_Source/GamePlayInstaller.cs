@@ -8,11 +8,14 @@ public class GamePlayInstaller : MonoInstaller
     [SerializeField] private Player playerPrefab;
     [SerializeField] private Transform playerSpawnPoint;
     [SerializeField] private PlayerConfig playerConfig;
+    [SerializeField] private Obstacle obstacle;
+    [SerializeField] private ScoreView scoreView;
 
     public override void InstallBindings()
     {
         BindPlayer();
         BindMovement();
+        BindScore();
     }
 
     private void BindPlayer()
@@ -27,6 +30,12 @@ public class GamePlayInstaller : MonoInstaller
 
     private void BindMovement()
     {
-        Container.Bind<Movement>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<Movement>().AsSingle().NonLazy();
+    }
+    private void BindScore()
+    {
+        Container.Bind<Obstacle>().FromInstance(obstacle);
+        Container.BindInterfacesAndSelfTo<Score>().AsSingle().NonLazy();
+        Container.BindInterfacesAndSelfTo<ScoreView>().FromInstance(scoreView);
     }
 }

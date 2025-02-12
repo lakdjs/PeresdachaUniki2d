@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b1efdd461f8a4746bc55e2a26d07b4a, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: 
-  <JumpPower>k__BackingField: 0.33
+  <JumpPower>k__BackingField: 0.62

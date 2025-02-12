@@ -10,6 +10,7 @@ public class Movement : IDisposable
 
     public Movement(IInput input, IMovable movable)
     {
+        Debug.Log("подписка");
         _input = input;
         _movable = movable;
 
@@ -22,16 +23,19 @@ public class Movement : IDisposable
 
     public void Dispose()
     {
+        Debug.Log("отписка");
         _input.ClickDown -= OnClickDown;
         _input.ClickUp -= OnClickUp;
     }
 
     private void OnClickDown()
     {
+        Debug.Log("Down");
         _movable.RB.gravityScale = -_movable.JumpPower;
     }
     private void OnClickUp()
     {
+        Debug.Log("Up");
         _movable.RB.gravityScale = _movable.JumpPower;
     }
 }
